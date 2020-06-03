@@ -1,4 +1,10 @@
+TEMPLATE = lib
 TARGET = qmqtt
+
+CONFIG(debug, debug|release) {
+     TARGET = $$join(TARGET,,,d)
+}
+
 QT = core network
 QMQTT_WEBSOCKETS: QT += websockets
 
@@ -12,4 +18,4 @@ include(qmqtt.pri)
 
 HEADERS += $$PUBLIC_HEADERS $$PRIVATE_HEADERS
 
-load(qt_module)
+#load(qt_module)
